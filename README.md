@@ -12,7 +12,7 @@ comma separated file. The script allows to define a condition column and value w
 line in the csv file gets downloaded. The user can choose to ignore the first line and set an output
 directory for the downloaded images which will be created if it does not exist. File names are numbered
 by default but a user can set the filename-column to derive the filename from.
-Note: Column index starts at 0.
+**Note**: Column index starts at 0.
 
 **Example**: `python fragment_downloader.py -i0 data.csv 3`
 
@@ -22,6 +22,10 @@ Note: Column index starts at 0.
 
 --> Downloads the urls saved in column 3 of the file 'data.csv' if the column 4 contains the value 'foo'.
     The file is delimited by semicolons.
+
+**Example**: `python fragment_downloader.py -h`
+
+--> Prints a detailed help text.
 
 ## stacked_bars_textannos.py
 This script creates a stacked bargraph (see file 'stacked.html') with the Bokeh library.
