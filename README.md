@@ -28,3 +28,14 @@ This script creates a stacked bargraph (see file 'stacked.html') with the Bokeh 
 
 **Usage**: `python stacked_bars_textannos.py`
 
+## Use the downloaded images with Orange
+- Download Orange at https://orangedatamining.com/
+- Download the data.tsv file from https://augusti.freizo.org/curator/annosearch.cgi?tsv=1 (Login first)
+- Download the needed images with the `fragment_downloader.py` script
+- Open the OWS file from this repository with Orange
+- Change 'Import Images' to point to your image directory.
+- Look at the Hierarchical Clustering
+
+## Intro into Orange Image Analytics
+- Clustering: https://www.youtube.com/watch?v=Iu8g2Twjn9U (4:40)
+- Classification: https://www.youtube.com/watch?v=lvgx62a8XQk (4:05)
