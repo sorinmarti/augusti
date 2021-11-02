@@ -116,7 +116,7 @@ if p.exists() and p.is_file():
                                 # Open a local file with wb ( write binary ) permission.
                                 prefix = ""
                                 if args.file_name_column is not None:
-                                    prefix = args.file_name_column + "_"
+                                    prefix = row[args.file_name_column] + "_"
                                 with open(f"./{args.output_folder}/{prefix}{processed_line}.jpg", 'wb') as f:
                                     shutil.copyfileobj(r.raw, f)
                                     print(f'Sucessfully downloaded: {row[args.url_column]}')
