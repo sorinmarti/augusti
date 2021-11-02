@@ -56,7 +56,7 @@ my_parser.add_argument('--output-folder',
 
 my_parser.add_argument('--file-name-column',
                        default=None,
-                       type=str,
+                       type=int,
                        help='The column to derive the file name from')
 
 my_parser.add_argument('-i0', '--ignore-first-line',
@@ -88,6 +88,11 @@ if p.exists() and p.is_file():
             print("These are examples of your conditions:")
             for row in csv_list[1:example_end]:
                 print('Ex.:', row[args.condition_column])
+
+        if args.file_name_column:
+            print("These are examples of your filenames:")
+            for row in csv_list[1:example_end]:
+                print('Ex.:', row[args.file_name_column], "(.jpg)")
 
         u_input = input("Is this correct? [Y/n]")
         if u_input == '' or u_input.lower()=='y':
