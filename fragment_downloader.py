@@ -59,6 +59,10 @@ my_parser.add_argument('--file-name-column',
                        type=int,
                        help='The column to derive the file name from')
 
+my_parser.add_argument('--file-name-column-is-standalone', '--fncis',
+                       action='store_true',
+                       help='The column to derive the file name from has a complete filename')
+
 my_parser.add_argument('-i0', '--ignore-first-line',
                        action='store_true',
                        help='Ignores first line of csv file')
@@ -120,9 +124,12 @@ if p.exists() and p.is_file():
                                 r.raw.decode_content = True
                                 # Open a local file with wb ( write binary ) permission.
                                 prefix = ""
+                                filename = f"./{args.output_folder}/{prefix}{processed_line}.jpg"
                                 if args.file_name_column is not None:
                                     prefix = row[args.file_name_column] + "_"
-                                with open(f"./{args.output_folder}/{prefix}{processed_line}.jpg", 'wb') as f:
+                                    if args.file_name_column_is_standalone:
+                                        filename = f"{args.output_folder}/{row[args.file_name_column]}"
+                                with open(filename, 'wb') as f:
                                     shutil.copyfileobj(r.raw, f)
                                     print(f'Sucessfully downloaded: {row[args.url_column]}')
                             else:
