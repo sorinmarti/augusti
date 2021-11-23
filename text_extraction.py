@@ -1,5 +1,6 @@
 import csv
 import matplotlib.pyplot as plt
+import wordcloud
 from matplotlib import cm
 from wordcloud import WordCloud
 
@@ -13,6 +14,12 @@ def plot_cloud(wordcloud, filename=None):
         plt.clf()
     else:
         plt.show()
+
+
+# Update Stopwords for WordCloud
+wordcloud.STOPWORDS.update(["der", "die", "das", "des", "er", "dem", "den", "und", "oder", "ein", "eine",
+                            "sie", "seiner", "Du", "zu", "auf", "als", "für", "von", "zum", "wir"])
+wordcloud.STOPWORDS.update(["nec", "ut", "et"])
 
 
 def get_row_tuple(row: list):
@@ -33,6 +40,7 @@ def get_row_tuple(row: list):
     except ValueError:
         ret_value["row_int"] = 0
     return ret_value
+
 
 def read_file(filename):
     list_of_actors = {}
